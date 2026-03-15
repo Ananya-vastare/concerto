@@ -1,0 +1,12 @@
+namespace org.accordproject.concerto.test@1.2.3
+
+import org.accordproject.concerto.test.other@2.3.4.{ OtherThing }
+
+concept Thing {
+    o String value
+    o String otherValue optional
+    o String regexValue regex=/foo/
+    o Integer number
+    o Integer rangeNumber range=[0,0]
+    o OtherThing otherThing
+}

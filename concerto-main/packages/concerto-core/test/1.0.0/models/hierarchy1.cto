@@ -1,0 +1,24 @@
+namespace org.test
+
+concept C {
+}
+
+transaction T {
+}
+
+participant P {
+}
+
+event E {
+}
+
+asset A {
+}
+
+concept Foo {
+  o Concept c
+  o Transaction t
+  o Participant p
+  o Event e
+  o Asset a
+}

@@ -1,0 +1,81 @@
+{
+  "name": "@accordproject/concerto-cto",
+  "description": "Parser for Concerto CTO files",
+  "version": "3.25.0",
+  "author": "accordproject.org",
+  "browser": "dist/concerto-cto.js",
+  "browserslist": "> 0.25%, not dead",
+  "dependencies": {
+    "@accordproject/concerto-metamodel": "3.12.6",
+    "@accordproject/concerto-util": "3.25.0"
+  },
+  "devDependencies": {
+    "chai": "4.3.6",
+    "chai-as-promised": "7.1.1",
+    "chai-things": "0.2.0",
+    "debug": "4.3.7",
+    "eslint": "8.57.1",
+    "jsdoc": "4.0.4",
+    "mocha": "10.8.2",
+    "node-polyfill-webpack-plugin": "4.0.0",
+    "nyc": "17.1.0",
+    "peggy": "4.2.0",
+    "sinon": "19.0.2",
+    "typescript": "5.7.2"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=10"
+  },
+  "homepage": "https://github.com/accordproject/concerto",
+  "keywords": [
+    "blockchain",
+    "hyperledger",
+    "solutions"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "nyc": {
+    "produce-source-map": "true",
+    "sourceMap": "inline",
+    "reporter": [
+      "lcov",
+      "text-summary",
+      "html",
+      "json"
+    ],
+    "include": [
+      "lib/**/*.js"
+    ],
+    "exclude": [
+      "lib/parser.js"
+    ],
+    "all": true,
+    "check-coverage": true,
+    "statements": 54,
+    "branches": 41,
+    "functions": 70,
+    "lines": 55
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/accordproject/concerto.git",
+    "directory": "packages/concerto-cto"
+  },
+  "scripts": {
+    "build": "npm run parser && npm run build:types",
+    "build:types": "tsc index.js --declaration --allowJs --emitDeclarationOnly --outDir types",
+    "doc": "jsdoc --pedantic --recurse -c jsdoc.json",
+    "lint": "eslint .",
+    "mocha": "mocha --recursive -t 10000",
+    "nyc": "nyc mocha --recursive -t 10000",
+    "parser": "peggy -o lib/parser.js lib/parser.pegjs",
+    "postbuild": "npm run webpack",
+    "prepublishOnly": "npm run webpack",
+    "pretest": "npm run lint && npm run parser && npm run doc",
+    "test": "nyc mocha --recursive -t 10000",
+    "test:watch": "nyc mocha --watch --recursive -t 10000",
+    "webpack": "webpack --config webpack.config.js --mode production"
+  },
+  "typings": "types/index.d.ts"
+}

@@ -1,0 +1,29 @@
+{
+  "$class": "concerto.metamodel@1.0.0.Model",
+  "decorators": [],
+  "namespace": "test.field",
+  "imports": [],
+  "declarations": [
+    {
+      "$class": "concerto.metamodel@1.0.0.ConceptDeclaration",
+      "name": "Foo",
+      "isAbstract": false,
+      "properties": [
+        {
+          "$class": "concerto.metamodel@1.0.0.StringProperty",
+          "name": "foo",
+          "isArray": false,
+          "isOptional": true,
+          "defaultValue": "FOO"
+        }
+      ],
+      "superType": {
+        "$class": "concerto.metamodel@1.0.0.TypeIdentifier",
+        "name": "Concept"
+      },
+      "identified": {
+        "$class": "concerto.metamodel@1.0.0.Identified"
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+namespace org.test
+
+concept C {
+	o Integer i optional
+	o Double[] ds
+}

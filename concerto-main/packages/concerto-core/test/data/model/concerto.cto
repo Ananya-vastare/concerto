@@ -1,0 +1,50 @@
+namespace org.accordproject.test
+
+enum Department {
+    o ENGINEERING
+    o ACCOUNTS
+    o HR
+    o SALES
+}
+
+concept Types {
+    o String stringValue
+    o String[] stringArrayValue
+    o Long longValue
+    o Integer integerValue
+    o Double doubleValue
+    o Boolean booleanValue
+    o DateTime dateTimeValue
+    o Product conceptValue
+    o Department departmentValue
+    o Department[] departmentArrayValue
+    --> Person relationshipValue
+    --> Person[] relationshipArrayValue
+}
+
+concept Product {
+    o String sku
+    o String description
+}
+
+abstract participant Person identified by ssn {
+    o String ssn
+    o Department department
+    --> Manager manager optional
+}
+
+participant Employee extends Person {
+    o String[] pets optional
+}
+
+participant Manager extends Person {
+}
+
+participant Customer extends Person {
+    o String customerId
+}
+
+asset TestAsset identified by id {
+    o String id
+    o Types types
+}
